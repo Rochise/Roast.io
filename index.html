@@ -556,14 +556,7 @@
             box-shadow: 0 0 20px rgba(11, 198, 223, 0.5);
         }
 
-        .admin-mode .add-champion-btn,
-        .admin-mode .delete-card-btn,
-        .admin-mode .delete-media-btn,
-        .admin-mode .add-media-btn,
-        .admin-mode .editable {
-            display: flex !important;
-        }
-
+        /* Admin controls - hidden by default */
         .add-champion-btn,
         .delete-card-btn,
         .delete-media-btn,
@@ -571,15 +564,22 @@
             display: none;
         }
 
-        /* Editable fields */
+        /* Show admin controls only in admin mode */
+        .admin-mode .add-champion-btn,
+        .admin-mode .delete-card-btn,
+        .admin-mode .delete-media-btn,
+        .admin-mode .add-media-btn {
+            display: flex !important;
+        }
+
+        /* Editable fields - always visible but only interactive in admin mode */
         .editable {
             position: relative;
-            cursor: pointer;
             transition: all 0.3s;
-            display: none;
         }
 
         .admin-mode .editable {
+            cursor: pointer;
             border: 2px dashed transparent;
             padding: 5px;
             border-radius: 5px;
@@ -590,6 +590,7 @@
             background: rgba(11, 198, 223, 0.1);
         }
 
+        /* Edit icons - hidden by default, shown on hover in admin mode */
         .edit-icon {
             position: absolute;
             top: -8px;
@@ -599,15 +600,15 @@
             border-radius: 50%;
             width: 20px;
             height: 20px;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             font-size: 12px;
-            opacity: 0;
             transition: all 0.3s;
         }
 
         .admin-mode .editable:hover .edit-icon {
+            display: flex;
             opacity: 1;
         }
 
